@@ -3,11 +3,11 @@ FIXTURES_SCHEMA = {
     'items': {
         'type': 'object',
         'properties': {
-            'model': { 'type': 'string' },
+            'model': {'type': 'string'},
             # TODO: add non-integer primary keys support
-            'pk': { 'type': 'integer' },
-            'fields': { 'type': 'object' }
+            'pk': {'type': 'integer'},
+            'fields': {'type': 'object'}
         },
-        'required': [ 'model' ]
+        'required': ['model']
     }
 }
