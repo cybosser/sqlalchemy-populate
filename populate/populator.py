@@ -1,17 +1,11 @@
 import importlib
 import itertools
-import re
 
-
-def _parse_model_name(model_name):
-    match = re.search('^((?:\w+\.?)+)\.(\w+)$', model_name)
-    if not match:
-        raise RuntimeError(u'Invalid model name: ' + model_name)
-    return match.groups()
+from populate.parsers import parse_model_name
 
 
 def _get_model_class(model_name):
-    module_name, class_name = _parse_model_name(model_name)
+    module_name, class_name = parse_model_name(model_name)
 
     module = importlib.import_module(module_name)
 
