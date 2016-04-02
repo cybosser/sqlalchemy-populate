@@ -1,6 +1,7 @@
 import itertools
 
 from populate.instantiator import instantiate_model
+from populate.validator import validate_fixtures
 
 
 def _instantiate(fixture):
@@ -12,6 +13,8 @@ def _instantiate(fixture):
 
 
 def populate(session, fixtures, commit=True):
+    validate_fixtures(fixtures)
+
     session.add_all(itertools.imap(_instantiate, fixtures))
 
     if commit:
