@@ -11,7 +11,7 @@ def _get_model_class(model_name):
     return getattr(module, class_name)
 
 
-def instantiate_model(model_name, pk, fields):
+def instantiate_model(model_name, fields):
     model_class = _get_model_class(model_name)
 
     return model_class(**fields)
