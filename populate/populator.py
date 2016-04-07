@@ -12,10 +12,7 @@ def _instantiate(fixture):
     return model
 
 
-def populate(session, fixtures, commit=True):
+def populate(session, fixtures):
     validate_fixtures(fixtures)
 
     session.add_all(itertools.imap(_instantiate, fixtures))
-
-    if commit:
-        session.commit()
