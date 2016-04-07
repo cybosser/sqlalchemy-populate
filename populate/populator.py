@@ -7,7 +7,9 @@ from populate.validator import validate_fixtures
 def _instantiate(fixture):
     model = instantiate_model(fixture['model'], fixture['fields'])
 
-    model.id = fixture['pk']
+    pk = fixture.get('pk', None)
+    if pk is not None:
+        model.id = pk
 
     return model
 
