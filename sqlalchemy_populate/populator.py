@@ -7,9 +7,9 @@ from sqlalchemy_populate.validator import validate_fixtures
 def _instantiate(fixture):
     model = instantiate_model(fixture['model'], fixture['fields'])
 
-    pk = fixture.get('pk', None)
-    if pk is not None:
-        model.id = pk
+    primary_key = fixture.get('pk')
+    if primary_key:
+        model.id = primary_key
 
     return model
 
