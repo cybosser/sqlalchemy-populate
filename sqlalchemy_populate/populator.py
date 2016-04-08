@@ -1,7 +1,7 @@
 import itertools
 
-from populate.instantiator import instantiate_model
-from populate.validator import validate_fixtures
+from sqlalchemy_populate.instantiator import instantiate_model
+from sqlalchemy_populate.validator import validate_fixtures
 
 
 def _instantiate(fixture):

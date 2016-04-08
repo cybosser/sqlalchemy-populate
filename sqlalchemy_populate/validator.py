@@ -1,6 +1,6 @@
 import jsonschema
 
-from populate.schemas import FIXTURES_SCHEMA
+from sqlalchemy_populate.schemas import FIXTURES_SCHEMA
 
 
 def validate_fixtures(fixtures):

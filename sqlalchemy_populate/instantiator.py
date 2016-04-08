@@ -1,6 +1,6 @@
 import importlib
 
-from populate.parsers import parse_model_name
+from sqlalchemy_populate.parsers import parse_model_name
 
 
 def _get_model_class(model_name):
