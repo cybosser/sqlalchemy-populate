@@ -2,7 +2,7 @@ import unittest
 
 
 class ParseModelNameTests(unittest.TestCase):
-    def test_valid_model_names(self):
+    def test_valid_model_name_returns_module_and_class_names(self):
         from sqlalchemy_populate.parsers import parse_model_name
 
         MODEL_NAMES = (
@@ -16,7 +16,7 @@ class ParseModelNameTests(unittest.TestCase):
             self.assertEqual(module_name, module_name_expected)
             self.assertEqual(class_name, class_name_expected)
 
-    def test_invalid_model_names(self):
+    def test_invalid_model_name_throws_format_error(self):
         from sqlalchemy_populate.exceptions import FormatError
         from sqlalchemy_populate.parsers import parse_model_name
 
