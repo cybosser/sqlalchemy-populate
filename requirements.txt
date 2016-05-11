@@ -1,1 +1,2 @@
 jsonschema
+nose_parameterized
