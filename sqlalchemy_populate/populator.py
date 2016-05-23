@@ -1,11 +1,14 @@
 import itertools
 
-from sqlalchemy_populate.instantiator import instantiate_model
+from sqlalchemy_populate.loader import load_class
+from sqlalchemy_populate.parsers import parse_model_name
 from sqlalchemy_populate.validator import validate_fixtures
 
 
 def _instantiate(fixture):
-    model = instantiate_model(fixture['model'], fixture['fields'])
+    module_name, class_name = parse_model_name(fixture['model'])
+
+    model = load_class(module_name, class_name)(**fixture['fields'])
 
     primary_key = fixture.get('pk')
     if primary_key:
