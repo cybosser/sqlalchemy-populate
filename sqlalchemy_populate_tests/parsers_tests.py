@@ -8,7 +8,7 @@ class ParseModelNameTests(unittest.TestCase):
         ('module.class', 'module', 'class'),
         ('package.module.class', 'package.module', 'class'),
     ])
-    def test_valid_model_name_returns_module_and_class_names(self, model_name, expected_module_name, expected_class_name):
+    def test__valid_model_name__returns_module_and_class_names(self, model_name, expected_module_name, expected_class_name):
         from sqlalchemy_populate.parsers import parse_model_name
 
         module_name, class_name = parse_model_name(model_name)
@@ -20,7 +20,7 @@ class ParseModelNameTests(unittest.TestCase):
         'class',
         'module/package',
     ])
-    def test_invalid_model_name_throws_format_error(self, model_name):
+    def test__invalid_model_name__throws_exception(self, model_name):
         from sqlalchemy_populate.exceptions import FormatError
         from sqlalchemy_populate.parsers import parse_model_name
 
