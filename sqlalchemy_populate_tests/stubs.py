@@ -1,0 +1,2 @@
+class ModelStub(object):
+    pass
