@@ -9,6 +9,10 @@ class FormatError(Exception):
     pass
 
 
+class LoadError(Exception):
+    pass
+
+
 @contextlib.contextmanager
 def substitute_exception(expected_exception_class, exception_object):
     try:

@@ -3,15 +3,17 @@ import unittest
 
 class LoadClassTests(unittest.TestCase):
     def test__invalid_module_name__throws_exception(self):
+        from sqlalchemy_populate.exceptions import LoadError
         from sqlalchemy_populate.loader import load_class
 
-        with self.assertRaises(ImportError):
+        with self.assertRaises(LoadError):
             class_ = load_class('__invalid_module__', 'ModelStub')
 
     def test__invalid_class_name__throws_exception(self):
+        from sqlalchemy_populate.exceptions import LoadError
         from sqlalchemy_populate.loader import load_class
 
-        with self.assertRaises(AttributeError):
+        with self.assertRaises(LoadError):
             class_ = load_class('sqlalchemy_populate_tests.stubs', '__invalid_class__')
 
     def test__valid_module_and_class_names__returns_class_object(self):
