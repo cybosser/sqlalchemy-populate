@@ -5,16 +5,15 @@ from nose_parameterized import parameterized
 
 class ParseModelNameTests(unittest.TestCase):
     @parameterized.expand([
-        ('module.class', 'module', 'class'),
-        ('package.module.class', 'package.module', 'class'),
+        ('module.class', ('module', 'class')),
+        ('package.module.class', ('package.module', 'class')),
     ])
-    def test__valid_model_name__returns_module_and_class_names(self, model_name, expected_module_name, expected_class_name):
+    def test__valid_model_name__returns_module_and_class_names(self, model_name, expected):
         from sqlalchemy_populate.parsers import parse_model_name
 
-        module_name, class_name = parse_model_name(model_name)
+        actual = parse_model_name(model_name)
 
-        self.assertEqual(expected_module_name, module_name)
-        self.assertEqual(expected_class_name, class_name)
+        self.assertEqual(expected, actual)
 
     @parameterized.expand([
         'class',
