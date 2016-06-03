@@ -28,3 +28,18 @@ class ValidateFixturesTest(unittest.TestCase):
         from sqlalchemy_populate.validator import validate_fixture
 
         validate_fixture(fixture)
+
+    def test__unknown_field__throws_exception(self):
+        from sqlalchemy_populate.validator import validate_fixture, ValidationError
+
+        fixture = {
+            'model': 'package.module.model',
+            'pk': 1,
+            'fields': {
+                'name': 'value'
+            },
+            '__unknown__': 42
+        }
+
+        with self.assertRaises(ValidationError):
+            validate_fixture(fixture)

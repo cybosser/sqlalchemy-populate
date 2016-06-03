@@ -6,5 +6,6 @@ FIXTURE_SCHEMA = {
         'pk': {'type': 'integer'},
         'fields': {'type': 'object'}
     },
-    'required': ['model']
+    'required': ['model'],
+    'additionalProperties': False
 }
